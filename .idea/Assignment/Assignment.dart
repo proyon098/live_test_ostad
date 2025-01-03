@@ -1,6 +1,7 @@
 abstract class Role {
   void displayRole();
 }
+
 class Person implements Role {
   String name;
   int age;
@@ -19,12 +20,14 @@ class Person implements Role {
     print("Address: $address");
   }
 }
+
 class Student extends Person {
   String studentID;
   String grade;
   List<int> courseScores;
 
-  Student(this.studentID, this.grade, this.courseScores, String name, int age, String address)
+  Student(this.studentID, this.grade, this.courseScores, String name, int age,
+      String address)
       : super(name, age, address);
 
   @override
@@ -46,11 +49,13 @@ class Student extends Person {
     print("Average Score: ${averageScore().toStringAsFixed(1)}");
   }
 }
+
 class Teacher extends Person {
   String teacherID;
   List<String> coursesTaught;
 
-  Teacher(this.teacherID, this.coursesTaught, String name, int age, String address)
+  Teacher(
+      this.teacherID, this.coursesTaught, String name, int age, String address)
       : super(name, age, address);
 
   @override
@@ -67,11 +72,12 @@ class Teacher extends Person {
     }
   }
 }
+
 void main() {
   var student = Student(
     "S12345",
     "A",
-    [90, 85, 82],         //sample input should be 90,85,92 to get average 89.0
+    [90, 85, 82], //sample input should be 90,85,92 to get average 89.0
     "John Doe",
     20,
     "123 Main Street",
